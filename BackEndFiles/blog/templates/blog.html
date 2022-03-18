@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<!-- Blog Section -->
+
+<section id="blog">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <div class="section-title">
+                         <h3>lastest Blogs</h3>
+                         <h2>The creative web & mobile studio and focused on brand identity, web development and social marketing.</h2>
+                    </div>
+                    
+                    <div class="blog-post-thumb">
+                         <div class="blog-post-image">
+                              <a href="{% url 'singlepost:post' %}">
+                                   <img src="{% static 'images/blog-image1.jpg' %}" class="img-responsive" alt="Blog Image">
+                              </a>
+                         </div>
+                         <div class="blog-post-title">
+                              <h3><a href="{% url 'singlepost:post' %}">We Help You Create Perfect Modern Design</a></h3>
+                         </div>
+                         <div class="blog-post-format">
+                              <span><a href="#"><img src="{% static 'images/author-image1.jpg' %}" class="img-responsive img-circle"> Jen Lopez</a></span>
+                              <span><i class="fa fa-date"></i> Jan 30, 2016</span>
+                              <span><a href="#"><i class="fa fa-comment-o"></i> 124 Comments</a></span>
+                         </div>
+                         <div class="blog-post-des">
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                              <a href="{% url 'singlepost:post' %}" class="btn btn-default">Continue Reading</a>
+                         </div>
+                    </div>
+                    {% for post in posts %}
+                    <div class="blog-post-thumb">
+                         <div class="blog-post-image">
+                              <a href="{% url 'singlepost:post' %}">
+                                   <img src="media/blogposts/{{post.image}}" class="img-responsive" alt="Blog Image">
+                              </a>
+                         </div>
+                         <div class="blog-post-title">
+                              <h3><a href="{% url 'singlepost:post' %}">{{post.title}}</a></h3>
+                         </div>
+                         <div class="blog-post-format">
+                              <span><a href="#"><img src=" media/blogposts/{{post.author_img}}" class="img-responsive img-circle"> {{post.author}} </a></span>
+                              <span><i class="fa fa-date"></i>{{post.published_date}}</span>
+                              <span><a href="#"><i class="fa fa-comment-o"></i> {{post.comment_say}} Comments</a></span>
+                         </div>
+                         <div class="blog-post-des">
+                              <p> {{post.text}} </p>
+                              <a href="{% url 'singlepost:post' %}" class="btn btn-default">Continue Reading</a>
+                         </div>
+                    </div>
+                    {% endfor %}
+               </div>
+
+          </div>
+     </div>
+</section>
+
+{% endblock %}
