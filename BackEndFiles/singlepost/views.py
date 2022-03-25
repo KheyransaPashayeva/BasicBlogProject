@@ -11,6 +11,7 @@ def post(request):
         comment.email=email
         comment.your_comment=your_comment
         comment.save()
-        return render(request, 'single-post.html')
-   
     return render(request, 'single-post.html')
+    post_comment = AllComment().objects.all()
+    context = {'posts': post_comment}
+    return render(request, 'single-post.html',context)

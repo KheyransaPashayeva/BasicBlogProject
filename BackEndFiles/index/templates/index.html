@@ -36,7 +36,7 @@
                          </div>
                     </a>
                </div>
-               {% for project in projects %}
+               {% for p in projects %}
 
                <div class="col-md-4 col-sm-6">
                     <a href="{% url 'singleproject:project' %}">
@@ -45,7 +45,7 @@
                                    <div class="portfolio-overlay">
                                         <div class="portfolio-item">
                                              <h3>Project Name</h3>
-                                             <small>{{project.name}}</small>
+                                             <small>{{p.name}}</small>
                                         </div>
                                    </div>
                          </div>

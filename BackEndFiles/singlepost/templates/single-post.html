@@ -67,6 +67,18 @@
                                                   <p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur.</p>
                                         </div>
                                    </div>
+                                   {% for x in post_comment %}
+                                   <div class="media">
+                                        <div class="media-object pull-left">
+                                             <img src="{% static 'images/comment-image2.jpg' %}" class="img-responsive img-circle" alt="Blog Image">
+                                        </div>
+                                        <div class="media-body">
+                                               <h3 class="media-heading">{{x.name}}</h3>
+                                                  <span>{{x.date_submitted}}</span>
+                                                  <p>{{x.your_comment}}</p>
+                                        </div>
+                                   </div>
+                                   {% endfor %}
                          </div>
 
                          <div class="blog-comment-form">
