@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import NewProject
 
-# Register your models here.
+@admin.register(NewProject)
+class NewProjectAdmin(admin.ModelAdmin):
+    list_display = ('name', 'image')
